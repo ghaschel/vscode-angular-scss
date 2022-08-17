@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_video_pseudo: {
+      match: '(?x)\n(:(playing|paused|seeking|buffering|stalled|muted|volume-locked|past|future|current))',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

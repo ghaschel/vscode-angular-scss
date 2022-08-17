@@ -1,0 +1,54 @@
+{
+  repository: {
+    map: {
+      begin: '\\(',
+      beginCaptures: {
+        '0': {
+          name: 'punctuation.definition.map.begin.bracket.round.scss',
+        },
+      },
+      end: '\\)',
+      endCaptures: {
+        '0': {
+          name: 'punctuation.definition.map.end.bracket.round.scss',
+        },
+      },
+      name: 'meta.definition.variable.map.scss',
+      patterns: [
+        {
+          include: '#comment_docblock',
+        },
+        {
+          include: '#comment_block',
+        },
+        {
+          include: '#comment_line',
+        },
+        {
+          match: '\\b([\\w-]+)\\s*(:)',
+          captures: {
+            '1': {
+              name: 'support.type.map.key.scss',
+            },
+            '2': {
+              name: 'punctuation.separator.key-value.scss',
+            },
+          },
+        },
+        {
+          match: ',',
+          name: 'punctuation.separator.delimiter.scss',
+        },
+        {
+          include: '#map',
+        },
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+      ],
+    },
+  },
+}

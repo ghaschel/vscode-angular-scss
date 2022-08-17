@@ -1,0 +1,22 @@
+{
+  repository: {
+    function_attributes: {
+      patterns: [
+        {
+          match: ':',
+          name: 'punctuation.separator.key-value.scss',
+        },
+        {
+          include: '#general',
+        },
+        {
+          include: '#property_values',
+        },
+        {
+          match: '[={}\\?;@]',
+          name: 'invalid.illegal.scss',
+        },
+      ],
+    },
+  },
+}

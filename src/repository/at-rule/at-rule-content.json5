@@ -1,0 +1,25 @@
+{
+  repository: {
+    at_rule_content: {
+      begin: '\\s*((@)content\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.content.scss',
+        },
+      },
+      end: '\\s*((?=;))',
+      name: 'meta.content.scss',
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          include: '#selectors',
+        },
+        {
+          include: '#property_values',
+        },
+      ],
+    },
+  },
+}

@@ -1,0 +1,24 @@
+{
+  repository: {
+    at_rule_page: {
+      patterns: [
+        {
+          begin: '^\\s*((@)page)(?=:|\\s)\\s*([-:\\w]*)',
+          captures: {
+            '1': {
+              name: 'keyword.control.at-rule.page.scss',
+            },
+            '2': {
+              name: 'punctuation.definition.keyword.scss',
+            },
+            '3': {
+              name: 'entity.name.function.scss',
+            },
+          },
+          end: '\\s*(?={)',
+          name: 'meta.at-rule.page.scss',
+        },
+      ],
+    },
+  },
+}

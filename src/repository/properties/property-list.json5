@@ -1,0 +1,33 @@
+{
+  repository: {
+    property_list: {
+      begin: '{',
+      beginCaptures: {
+        '0': {
+          name: 'punctuation.section.property-list.begin.bracket.curly.scss',
+        },
+      },
+      end: '}',
+      endCaptures: {
+        '0': {
+          name: 'punctuation.section.property-list.end.bracket.curly.scss',
+        },
+      },
+      name: 'meta.property-list.scss',
+      patterns: [
+        {
+          include: '#flow_control',
+        },
+        {
+          include: '#rules',
+        },
+        {
+          include: '#properties',
+        },
+        {
+          include: '$self',
+        },
+      ],
+    },
+  },
+}

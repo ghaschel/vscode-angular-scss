@@ -1,0 +1,28 @@
+{
+  repository: {
+    at_rule_charset: {
+      begin: '\\s*((@)charset\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.at-rule.charset.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*((?=;|$))',
+      name: 'meta.at-rule.charset.scss',
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          include: '#string_single',
+        },
+        {
+          include: '#string_double',
+        },
+      ],
+    },
+  },
+}

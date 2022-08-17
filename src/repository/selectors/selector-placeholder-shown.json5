@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_placeholder_shown: {
+      match: '(?x)\n(:placeholder-shown)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

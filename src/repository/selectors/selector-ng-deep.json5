@@ -1,0 +1,12 @@
+{
+  repository: {
+    selector_ng_deep: {
+      match: '(?x)\n(::ng-deep)',
+      captures: {
+        '1': {
+          name: 'invalid.deprecated.combinator.css',
+        },
+      },
+    },
+  },
+}

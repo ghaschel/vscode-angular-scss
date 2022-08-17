@@ -1,0 +1,8 @@
+{
+  repository: {
+    operators: {
+      match: '[-+*/](?!\\s*[-+*/])',
+      name: 'keyword.operator.css',
+    },
+  },
+}

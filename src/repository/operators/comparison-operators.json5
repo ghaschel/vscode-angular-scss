@@ -1,0 +1,8 @@
+{
+  repository: {
+    comparison_operators: {
+      match: '==|!=|<=|>=|<|>',
+      name: 'keyword.operator.comparison.scss',
+    },
+  },
+}

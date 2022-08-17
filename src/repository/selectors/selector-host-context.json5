@@ -1,0 +1,37 @@
+{
+  repository: {
+    selector_host_context: {
+      patterns: [
+        {
+          begin: '(?<=:host-context)\\s*(\\()',
+          beginCaptures: {
+            '1': {
+              name: 'punctuation.definition.parameters.begin.bracket.round.scss',
+            },
+          },
+          end: '\\)',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.parameters.end.bracket.round.scss',
+            },
+          },
+          name: 'entity.other.attribute-name.pseudo-class.css',
+          patterns: [
+            {
+              include: '#selector_class',
+            },
+          ],
+        },
+        {
+          match: '(:host-context)\\b',
+          captures: {
+            '1': {
+              name: 'entity.other.attribute-name.pseudo-class.css',
+            },
+          },
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      ],
+    },
+  },
+}

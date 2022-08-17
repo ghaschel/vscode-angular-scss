@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_user_valid: {
+      match: '(?x)\n(:(user-valid|-moz-ui-valid))',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

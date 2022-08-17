@@ -1,0 +1,27 @@
+{
+  repository: {
+    interpolation: {
+      begin: '#{',
+      beginCaptures: {
+        '0': {
+          name: 'punctuation.definition.interpolation.begin.bracket.curly.scss',
+        },
+      },
+      end: '}',
+      endCaptures: {
+        '0': {
+          name: 'punctuation.definition.interpolation.end.bracket.curly.scss',
+        },
+      },
+      name: 'variable.interpolation.scss',
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+      ],
+    },
+  },
+}

@@ -1,0 +1,8 @@
+{
+  repository: {
+    constant_mathematical_symbols: {
+      match: '\\b(\\+|-|\\*|/)\\b',
+      name: 'support.constant.mathematical-symbols.scss',
+    },
+  },
+}

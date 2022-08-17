@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_target_within: {
+      match: '(?x)\n(:target-within)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

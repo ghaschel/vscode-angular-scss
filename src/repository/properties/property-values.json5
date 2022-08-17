@@ -1,0 +1,69 @@
+{
+  repository: {
+    property_values: {
+      patterns: [
+        {
+          include: '#string_single',
+        },
+        {
+          include: '#string_double',
+        },
+        {
+          include: '#constant_functions',
+        },
+        {
+          include: '#constant_sass_functions',
+        },
+        {
+          include: '#constant_important',
+        },
+        {
+          include: '#constant_default',
+        },
+        {
+          include: '#constant_optional',
+        },
+        {
+          include: 'source.css#numeric-values',
+        },
+        {
+          include: 'source.css#property-keywords',
+        },
+        {
+          include: 'source.css#color-keywords',
+        },
+        {
+          include: 'source.css#property-names',
+        },
+        {
+          include: '#constant_mathematical_symbols',
+        },
+        {
+          include: '#operators',
+        },
+        {
+          begin: '\\(',
+          beginCaptures: {
+            '0': {
+              name: 'punctuation.definition.begin.bracket.round.scss',
+            },
+          },
+          end: '\\)',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.end.bracket.round.scss',
+            },
+          },
+          patterns: [
+            {
+              include: '#general',
+            },
+            {
+              include: '#property_values',
+            },
+          ],
+        },
+      ],
+    },
+  },
+}

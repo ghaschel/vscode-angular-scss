@@ -1,0 +1,26 @@
+{
+  repository: {
+    at_rule_fontface: {
+      patterns: [
+        {
+          begin: '^\\s*((@)font-face\\b)',
+          beginCaptures: {
+            '1': {
+              name: 'keyword.control.at-rule.fontface.scss',
+            },
+            '2': {
+              name: 'punctuation.definition.keyword.scss',
+            },
+          },
+          end: '\\s*(?={)',
+          name: 'meta.at-rule.fontface.scss',
+          patterns: [
+            {
+              include: '#function_attributes',
+            },
+          ],
+        },
+      ],
+    },
+  },
+}

@@ -1,0 +1,33 @@
+{
+  repository: {
+    at_rule_supports: {
+      begin: '(?<=^|\\s)(@)supports\\b',
+      captures: {
+        '0': {
+          name: 'keyword.control.at-rule.supports.scss',
+        },
+        '1': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '(?={)|$',
+      name: 'meta.at-rule.supports.scss',
+      patterns: [
+        {
+          include: '#logical_operators',
+        },
+        {
+          include: '#properties',
+        },
+        {
+          match: '\\(',
+          name: 'punctuation.definition.condition.begin.bracket.round.scss',
+        },
+        {
+          match: '\\)',
+          name: 'punctuation.definition.condition.end.bracket.round.scss',
+        },
+      ],
+    },
+  },
+}

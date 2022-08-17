@@ -1,0 +1,20 @@
+{
+  repository: {
+    general: {
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          include: '#comment_docblock',
+        },
+        {
+          include: '#comment_block',
+        },
+        {
+          include: '#comment_line',
+        },
+      ],
+    },
+  },
+}

@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_blank: {
+      match: '(?x)\n(:blank)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

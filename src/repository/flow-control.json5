@@ -1,0 +1,29 @@
+{
+  repository: {
+    flow_control: {
+      patterns: [
+        {
+          include: '#at_rule_if',
+        },
+        {
+          include: '#at_rule_else',
+        },
+        {
+          include: '#at_rule_warn',
+        },
+        {
+          include: '#at_rule_for',
+        },
+        {
+          include: '#at_rule_while',
+        },
+        {
+          include: '#at_rule_each',
+        },
+        {
+          include: '#at_rule_return',
+        },
+      ],
+    },
+  },
+}

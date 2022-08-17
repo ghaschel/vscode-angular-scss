@@ -1,0 +1,32 @@
+{
+  repository: {
+    at_rule_for: {
+      begin: '\\s*((@)for\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.for.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*(?={)',
+      name: 'meta.at-rule.for.scss',
+      patterns: [
+        {
+          match: '(==|!=|<=|>=|<|>|from|to|through)',
+          name: 'keyword.control.operator',
+        },
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+        {
+          include: '$self',
+        },
+      ],
+    },
+  },
+}

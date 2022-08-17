@@ -1,0 +1,44 @@
+{
+  repository: {
+    parameters: {
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          begin: '\\(',
+          beginCaptures: {
+            '0': {
+              name: 'punctuation.definition.begin.bracket.round.scss',
+            },
+          },
+          end: '\\)',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.end.bracket.round.scss',
+            },
+          },
+          patterns: [
+            {
+              include: '#function_attributes',
+            },
+          ],
+        },
+        {
+          include: '#property_values',
+        },
+        {
+          include: '#comment_block',
+        },
+        {
+          match: '[^\'",) \\t]+',
+          name: 'variable.parameter.url.scss',
+        },
+        {
+          match: ',',
+          name: 'punctuation.separator.delimiter.scss',
+        },
+      ],
+    },
+  },
+}

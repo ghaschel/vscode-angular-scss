@@ -1,0 +1,8 @@
+{
+  repository: {
+    constant_optional: {
+      match: '!optional',
+      name: 'keyword.other.optional.scss',
+    },
+  },
+}

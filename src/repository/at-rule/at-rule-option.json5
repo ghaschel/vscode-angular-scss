@@ -1,0 +1,16 @@
+{
+  repository: {
+    at_rule_option: {
+      captures: {
+        '1': {
+          name: 'keyword.control.at-rule.charset.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      match: '^\\s*((@)option\\b)\\s*',
+      name: 'meta.at-rule.option.scss',
+    },
+  },
+}

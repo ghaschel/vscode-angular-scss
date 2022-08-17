@@ -1,0 +1,28 @@
+{
+  repository: {
+    at_rule_if: {
+      begin: '\\s*((@)if\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.if.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*(?={)',
+      name: 'meta.at-rule.if.scss',
+      patterns: [
+        {
+          include: '#conditional_operators',
+        },
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+      ],
+    },
+  },
+}

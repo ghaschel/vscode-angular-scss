@@ -1,0 +1,32 @@
+{
+  repository: {
+    at_rule_each: {
+      begin: '\\s*((@)each\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.each.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*((?=}))',
+      name: 'meta.at-rule.each.scss',
+      patterns: [
+        {
+          match: '\\b(in|,)\\b',
+          name: 'keyword.control.operator',
+        },
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+        {
+          include: '$self',
+        },
+      ],
+    },
+  },
+}

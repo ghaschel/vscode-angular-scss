@@ -1,0 +1,73 @@
+{
+  $schema: 'https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json',
+  version: 'https://github.com/atom/language-sass/commit/f52ab12f7f9346cc2568129d8c4419bd3d506b47',
+  name: 'SCSS',
+  scopeName: 'source.css.scss',
+  patterns: [
+    {
+      include: '#variable_setting',
+    },
+    {
+      include: '#at_rule_forward',
+    },
+    {
+      include: '#at_rule_use',
+    },
+    {
+      include: '#at_rule_include',
+    },
+    {
+      include: '#at_rule_import',
+    },
+    {
+      include: '#general',
+    },
+    {
+      include: '#flow_control',
+    },
+    {
+      include: '#rules',
+    },
+    {
+      include: '#property_list',
+    },
+    {
+      include: '#at_rule_mixin',
+    },
+    {
+      include: '#at_rule_media',
+    },
+    {
+      include: '#at_rule_function',
+    },
+    {
+      include: '#at_rule_charset',
+    },
+    {
+      include: '#at_rule_option',
+    },
+    {
+      include: '#at_rule_namespace',
+    },
+    {
+      include: '#at_rule_fontface',
+    },
+    {
+      include: '#at_rule_page',
+    },
+    {
+      include: '#at_rule_keyframes',
+    },
+    {
+      include: '#at_rule_at_root',
+    },
+    {
+      include: '#at_rule_supports',
+    },
+    {
+      match: ';',
+      name: 'punctuation.terminator.rule.css',
+    },
+  ],
+  repository: {},
+}

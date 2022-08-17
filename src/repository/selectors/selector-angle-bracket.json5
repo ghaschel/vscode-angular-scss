@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_angle_bracket: {
+      match: '(?x)\n(>|\\+|\\~)(?!>)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'keyword.operator.combinator.css',
+        },
+      },
+    },
+  },
+}

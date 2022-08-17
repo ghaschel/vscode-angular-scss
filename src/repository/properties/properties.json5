@@ -1,0 +1,44 @@
+{
+  repository: {
+    properties: {
+      patterns: [
+        {
+          begin: '(?<![-a-z])(?=[-a-z])',
+          end: '$|(?![-a-z])',
+          name: 'meta.property-name.scss',
+          patterns: [
+            {
+              include: 'source.css#property-names',
+            },
+            {
+              include: '#at_rule_include',
+            },
+          ],
+        },
+        {
+          begin: '(:)\\s*(?!(\\s*{))',
+          beginCaptures: {
+            '1': {
+              name: 'punctuation.separator.key-value.scss',
+            },
+          },
+          end: '\\s*(;|(?=}|\\)))',
+          endCaptures: {
+            '1': {
+              name: 'punctuation.terminator.rule.scss',
+            },
+          },
+          contentName: 'meta.property-value.scss',
+          patterns: [
+            {
+              include: '#general',
+            },
+            {
+              include: '#property_values',
+            },
+          ],
+        },
+      ],
+    },
+  },
+}

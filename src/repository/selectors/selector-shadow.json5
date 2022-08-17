@@ -1,0 +1,12 @@
+{
+  repository: {
+    selector_shadow: {
+      match: '(?x)\n(::shadow)',
+      captures: {
+        '1': {
+          name: 'invalid.deprecated.combinator.css',
+        },
+      },
+    },
+  },
+}

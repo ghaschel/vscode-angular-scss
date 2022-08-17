@@ -1,0 +1,54 @@
+{
+  repository: {
+    selector_pseudo_class: {
+      patterns: [
+        {
+          begin: '((:)\\bnth-(?:child|last-child|of-type|last-of-type|col|last-col))(\\()',
+          beginCaptures: {
+            '1': {
+              name: 'entity.other.attribute-name.pseudo-class.css',
+            },
+            '2': {
+              name: 'punctuation.definition.entity.css',
+            },
+            '3': {
+              name: 'punctuation.definition.pseudo-class.begin.bracket.round.css',
+            },
+          },
+          end: '\\)',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.pseudo-class.end.bracket.round.css',
+            },
+          },
+          patterns: [
+            {
+              include: '#interpolation',
+            },
+            {
+              match: '(?i)[+-]?(\\d+n?|n)(\\s*[+-]\\s*\\d+)?',
+              name: 'constant.numeric.css',
+            },
+            {
+              match: '(?<=\\d)n\\b|\\b(n|even|odd)\\b',
+              name: 'constant.other.scss',
+            },
+            {
+              match: '\\w+',
+              name: 'invalid.illegal.scss',
+            },
+          ],
+        },
+        {
+          include: 'source.css#pseudo-classes',
+        },
+        {
+          include: 'source.css#pseudo-elements',
+        },
+        {
+          include: 'source.css#functional-pseudo-classes',
+        },
+      ],
+    },
+  },
+}

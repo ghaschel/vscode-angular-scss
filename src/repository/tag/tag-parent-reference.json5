@@ -1,0 +1,8 @@
+{
+  repository: {
+    tag_parent_reference: {
+      match: '&',
+      name: 'entity.name.tag.reference.scss',
+    },
+  },
+}

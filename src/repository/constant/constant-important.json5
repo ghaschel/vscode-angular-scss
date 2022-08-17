@@ -1,0 +1,8 @@
+{
+  repository: {
+    constant_important: {
+      match: '!important',
+      name: 'keyword.other.important.scss',
+    },
+  },
+}

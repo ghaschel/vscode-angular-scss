@@ -1,0 +1,28 @@
+{
+  repository: {
+    at_rule_else: {
+      begin: '\\s*((@)else(\\s*(if)?))\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.else.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*(?={)',
+      name: 'meta.at-rule.else.scss',
+      patterns: [
+        {
+          include: '#conditional_operators',
+        },
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+      ],
+    },
+  },
+}

@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_where: {
+      match: '(?x)\n(:where)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

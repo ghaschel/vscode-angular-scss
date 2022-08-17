@@ -1,0 +1,14 @@
+{
+  repository: {
+    variable: {
+      patterns: [
+        {
+          include: '#variables',
+        },
+        {
+          include: '#interpolation',
+        },
+      ],
+    },
+  },
+}

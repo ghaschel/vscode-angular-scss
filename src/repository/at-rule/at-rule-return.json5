@@ -1,0 +1,25 @@
+{
+  repository: {
+    at_rule_return: {
+      begin: '\\s*((@)(return)\\b)',
+      captures: {
+        '1': {
+          name: 'keyword.control.return.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*((?=;))',
+      name: 'meta.at-rule.return.scss',
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+      ],
+    },
+  },
+}

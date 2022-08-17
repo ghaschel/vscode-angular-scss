@@ -1,0 +1,44 @@
+{
+  repository: {
+    at_rule_function: {
+      patterns: [
+        {
+          begin: '\\s*((@)function\\b)\\s*',
+          captures: {
+            '1': {
+              name: 'keyword.control.at-rule.function.scss',
+            },
+            '2': {
+              name: 'punctuation.definition.keyword.scss',
+            },
+            '3': {
+              name: 'entity.name.function.scss',
+            },
+          },
+          end: '\\s*(?={)',
+          name: 'meta.at-rule.function.scss',
+          patterns: [
+            {
+              include: '#function_attributes',
+            },
+          ],
+        },
+        {
+          captures: {
+            '1': {
+              name: 'keyword.control.at-rule.function.scss',
+            },
+            '2': {
+              name: 'punctuation.definition.keyword.scss',
+            },
+            '3': {
+              name: 'entity.name.function.scss',
+            },
+          },
+          match: '\\s*((@)function\\b)\\s*',
+          name: 'meta.at-rule.function.scss',
+        },
+      ],
+    },
+  },
+}

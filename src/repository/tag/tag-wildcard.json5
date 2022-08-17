@@ -1,0 +1,8 @@
+{
+  repository: {
+    tag_wildcard: {
+      match: '\\*',
+      name: 'entity.name.tag.wildcard.scss',
+    },
+  },
+}

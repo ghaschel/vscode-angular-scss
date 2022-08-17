@@ -1,0 +1,8 @@
+node_modules
+.vsix
+.DS_store
+.vscode
+*.sh
+.hushlogin
+test/externalGrammars/*.json
+test/externalGrammars/*.plist

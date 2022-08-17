@@ -1,0 +1,28 @@
+{
+  repository: {
+    string_single: {
+      begin: "'",
+      beginCaptures: {
+        '0': {
+          name: 'punctuation.definition.string.begin.scss',
+        },
+      },
+      end: "'",
+      endCaptures: {
+        '0': {
+          name: 'punctuation.definition.string.end.scss',
+        },
+      },
+      name: 'string.quoted.single.scss',
+      patterns: [
+        {
+          match: '\\\\(\\h{1,6}|.)',
+          name: 'constant.character.escape.scss',
+        },
+        {
+          include: '#interpolation',
+        },
+      ],
+    },
+  },
+}

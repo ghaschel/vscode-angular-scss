@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_root: {
+      match: '(?x)\n(:root)(?!-)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

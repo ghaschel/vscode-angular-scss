@@ -1,0 +1,31 @@
+{
+  repository: {
+    at_rule_while: {
+      begin: '\\s*((@)while\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.while.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*(?=})',
+      name: 'meta.at-rule.while.scss',
+      patterns: [
+        {
+          include: '#conditional_operators',
+        },
+        {
+          include: '#variable',
+        },
+        {
+          include: '#property_values',
+        },
+        {
+          include: '$self',
+        },
+      ],
+    },
+  },
+}

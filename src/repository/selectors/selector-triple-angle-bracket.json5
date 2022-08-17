@@ -1,0 +1,12 @@
+{
+  repository: {
+    selector_triple_angle_bracket: {
+      match: '(?x)\n(>>>)',
+      captures: {
+        '1': {
+          name: 'invalid.deprecated.combinator.css',
+        },
+      },
+    },
+  },
+}

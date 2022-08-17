@@ -1,0 +1,66 @@
+{
+  "name": "vscode-angular-scss",
+  "displayName": "vscode-angular-scss",
+  "description": "Angular syntax highlighting for scss style files",
+  "version": "0.0.1",
+  "publisher": "ghaschel",
+  "license": "MIT",
+  "scripts": {
+    "watch": "npx gulp watch",
+    "compile-json": "npx gulp compile-json",
+    "publish": "standard-version && git push --follow-tags origin master && vsce publish",
+    "postinstall": "node scripts/postinstall.js",
+    "test": "npx vscode-tmgrammar-test -g syntaxes/angular-scss.tmLanguage.json -g test/externalGrammars/source.css.tmLanguage.json -g test/externalGrammars/source.js.tmLanguage.json -g test/externalGrammars/text.html.basic.tmLanguage.json -g test/externalGrammars/source.css.scss.tmLanguage.json -g test/externalGrammars/source.css.less.tmLanguage.json -g test/externalGrammars/source.sassdoc.tmLanguage.json -g test/externalGrammars/source.stylus.tmLanguage.json -g test/externalGrammars/source.coffee.tmLanguage.json -g test/externalGrammars/source.js.regexp.tmLanguage.plist test/*.scss",
+    "update-snapshots": "npx vscode-tmgrammar-snap -s text.scss -g syntaxes/angular-scss.tmLanguage.json -g test/externalGrammars/source.css.tmLanguage.json -g test/externalGrammars/source.js.tmLanguage.json -g test/externalGrammars/text.html.basic.tmLanguage.json -g test/externalGrammars/source.css.scss.tmLanguage.json -g test/externalGrammars/source.css.less.tmLanguage.json -g test/externalGrammars/source.sassdoc.tmLanguage.json -g test/externalGrammars/source.stylus.tmLanguage.json -g test/externalGrammars/source.coffee.tmLanguage.json -g test/externalGrammars/source.js.regexp.tmLanguage.plist --updateSnapshot test/*.scss",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghaschel/vscode-angular-scss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ghaschel/vscode-angular-scss/issues"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "author": "Guilherme Haschel",
+  "homepage": "https://github.com/ghaschel/vscode-angular-scss#readme",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "grammars": [
+      {
+        "language": "scss",
+        "scopeName": "source.css.scss",
+        "path": "./syntaxes/angular-scss.tmLanguage.json"
+      }
+    ]
+  },
+  "icon": "assets/angular-scss.png",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "gulp": "^4.0.2",
+    "gulp-json5-to-json": "^0.2.1",
+    "gulp-merge-json": "^2.1.2",
+    "gulp-prettier": "^4.0.0",
+    "husky": "^7.0.0",
+    "json-beautify": "^1.1.1",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "standard-version": "^9.5.0",
+    "vscode-tmgrammar-test": "^0.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

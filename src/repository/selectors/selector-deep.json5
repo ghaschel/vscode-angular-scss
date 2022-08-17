@@ -1,0 +1,12 @@
+{
+  repository: {
+    selector_deep: {
+      match: '(?x)\n(/deep/)',
+      captures: {
+        '1': {
+          name: 'invalid.deprecated.combinator.css',
+        },
+      },
+    },
+  },
+}

@@ -1,0 +1,109 @@
+{
+  repository: {
+    at_rule_keyframes: {
+      begin: '(?<=^|\\s)(@)(?:-(?:webkit|moz)-)?keyframes\\b',
+      beginCaptures: {
+        '0': {
+          name: 'keyword.control.at-rule.keyframes.scss',
+        },
+        '1': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '(?<=})',
+      name: 'meta.at-rule.keyframes.scss',
+      patterns: [
+        {
+          match: '(?<=@keyframes)\\s+((?:[_A-Za-z][-\\w]|-[_A-Za-z])[-\\w]*)',
+          captures: {
+            '1': {
+              name: 'entity.name.function.scss',
+            },
+          },
+        },
+        {
+          begin: '(?<=@keyframes)\\s+(")',
+          beginCaptures: {
+            '1': {
+              name: 'punctuation.definition.string.begin.scss',
+            },
+          },
+          end: '"',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.string.end.scss',
+            },
+          },
+          name: 'string.quoted.double.scss',
+          contentName: 'entity.name.function.scss',
+          patterns: [
+            {
+              match: '\\\\(\\h{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              include: '#interpolation',
+            },
+          ],
+        },
+        {
+          begin: "(?<=@keyframes)\\s+(')",
+          beginCaptures: {
+            '1': {
+              name: 'punctuation.definition.string.begin.scss',
+            },
+          },
+          end: "'",
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.string.end.scss',
+            },
+          },
+          name: 'string.quoted.single.scss',
+          contentName: 'entity.name.function.scss',
+          patterns: [
+            {
+              match: '\\\\(\\h{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              include: '#interpolation',
+            },
+          ],
+        },
+        {
+          begin: '{',
+          beginCaptures: {
+            '0': {
+              name: 'punctuation.section.keyframes.begin.scss',
+            },
+          },
+          end: '}',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.section.keyframes.end.scss',
+            },
+          },
+          patterns: [
+            {
+              match: '\\b(?:(?:100|[1-9]\\d|\\d)%|from|to)(?=\\s*{)',
+              name: 'entity.other.attribute-name.scss',
+            },
+            {
+              include: '#flow_control',
+            },
+            {
+              include: '#interpolation',
+            },
+            {
+              include: '#property_list',
+            },
+            {
+              include: '#rules',
+            },
+          ],
+        },
+      ],
+    },
+  },
+}

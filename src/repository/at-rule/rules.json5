@@ -1,0 +1,26 @@
+{
+  repository: {
+    rules: {
+      patterns: [
+        {
+          include: '#general',
+        },
+        {
+          include: '#at_rule_extend',
+        },
+        {
+          include: '#at_rule_content',
+        },
+        {
+          include: '#at_rule_include',
+        },
+        {
+          include: '#at_rule_media',
+        },
+        {
+          include: '#selectors',
+        },
+      ],
+    },
+  },
+}

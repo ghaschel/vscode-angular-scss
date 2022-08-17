@@ -1,0 +1,28 @@
+{
+  repository: {
+    at_rule_warn: {
+      begin: '\\s*((@)(warn|debug|error)\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.warn.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*(?=;)',
+      name: 'meta.at-rule.warn.scss',
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          include: '#string_double',
+        },
+        {
+          include: '#string_single',
+        },
+      ],
+    },
+  },
+}

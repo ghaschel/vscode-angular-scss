@@ -1,0 +1,14 @@
+{
+  repository: {
+    conditional_operators: {
+      patterns: [
+        {
+          include: '#comparison_operators',
+        },
+        {
+          include: '#logical_operators',
+        },
+      ],
+    },
+  },
+}

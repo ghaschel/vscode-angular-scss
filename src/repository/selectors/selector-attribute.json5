@@ -1,0 +1,99 @@
+{
+  repository: {
+    selector_attribute: {
+      match: '(?xi)\n(\\[)\n\\s*\n(\n  (?:\n    [-a-zA-Z_0-9]|[^\\x00-\\x7F]       # Valid identifier characters\n    | \\\\(?:[0-9a-fA-F]{1,6}|.)       # Escape sequence\n    | \\#\\{                           # Interpolation (escaped to avoid Coffeelint errors)\n    | \\.?\\$                          # Possible start of interpolation variable\n    | }                                # Possible end of interpolation\n  )+?\n)\n(?:\n  \\s*([~|^$*]?=)\\s*\n  (?:\n    (\n      (?:\n        [-a-zA-Z_0-9]|[^\\x00-\\x7F]       # Valid identifier characters\n        | \\\\(?:[0-9a-fA-F]{1,6}|.)       # Escape sequence\n        | \\#\\{                           # Interpolation (escaped to avoid Coffeelint errors)\n        | \\.?\\$                          # Possible start of interpolation variable\n        | }                                # Possible end of interpolation\n      )+\n    )\n    |\n    ((")(.*?)("))\n    |\n    ((\')(.*?)(\'))\n  )\n)?\n\\s*\n(\\])',
+      name: 'meta.attribute-selector.scss',
+      captures: {
+        '1': {
+          name: 'punctuation.definition.attribute-selector.begin.bracket.square.scss',
+        },
+        '2': {
+          name: 'entity.other.attribute-name.attribute.scss',
+          patterns: [
+            {
+              include: '#interpolation',
+            },
+            {
+              match: '\\\\([0-9a-fA-F]{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              match: '\\$|}',
+              name: 'invalid.illegal.scss',
+            },
+          ],
+        },
+        '3': {
+          name: 'keyword.operator.scss',
+        },
+        '4': {
+          name: 'string.unquoted.attribute-value.scss',
+          patterns: [
+            {
+              include: '#interpolation',
+            },
+            {
+              match: '\\\\([0-9a-fA-F]{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              match: '\\$|}',
+              name: 'invalid.illegal.scss',
+            },
+          ],
+        },
+        '5': {
+          name: 'string.quoted.double.attribute-value.scss',
+        },
+        '6': {
+          name: 'punctuation.definition.string.begin.scss',
+        },
+        '7': {
+          patterns: [
+            {
+              include: '#interpolation',
+            },
+            {
+              match: '\\\\([0-9a-fA-F]{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              match: '\\$|}',
+              name: 'invalid.illegal.scss',
+            },
+          ],
+        },
+        '8': {
+          name: 'punctuation.definition.string.end.scss',
+        },
+        '9': {
+          name: 'string.quoted.single.attribute-value.scss',
+        },
+        '10': {
+          name: 'punctuation.definition.string.begin.scss',
+        },
+        '11': {
+          patterns: [
+            {
+              include: '#interpolation',
+            },
+            {
+              match: '\\\\([0-9a-fA-F]{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              match: '\\$|}',
+              name: 'invalid.illegal.scss',
+            },
+          ],
+        },
+        '12': {
+          name: 'punctuation.definition.string.end.scss',
+        },
+        '13': {
+          name: 'punctuation.definition.attribute-selector.end.bracket.square.scss',
+        },
+      },
+    },
+  },
+}

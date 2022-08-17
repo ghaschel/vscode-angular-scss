@@ -1,0 +1,19 @@
+{
+  repository: {
+    comment_block: {
+      begin: '/\\*',
+      beginCaptures: {
+        '0': {
+          name: 'punctuation.definition.comment.scss',
+        },
+      },
+      end: '\\*/',
+      endCaptures: {
+        '0': {
+          name: 'punctuation.definition.comment.scss',
+        },
+      },
+      name: 'comment.block.scss',
+    },
+  },
+}

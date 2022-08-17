@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_slotted: {
+      match: '(?x)\n(::slotted)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}

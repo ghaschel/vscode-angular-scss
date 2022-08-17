@@ -1,0 +1,8 @@
+{
+  repository: {
+    constant_default: {
+      match: '!default',
+      name: 'keyword.other.default.scss',
+    },
+  },
+}

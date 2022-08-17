@@ -1,0 +1,13 @@
+{
+  repository: {
+    selector_picture_in_picture: {
+      match: '(?x)\n(:picture-in-picture)',
+      name: 'entity.other.attribute-name.pseudo-class.css',
+      captures: {
+        '1': {
+          name: 'entity.other.attribute-name.pseudo-class.css',
+        },
+      },
+    },
+  },
+}
