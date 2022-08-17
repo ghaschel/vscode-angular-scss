@@ -1,360 +1,435 @@
-:host-context(.test) {
-}
+// General SCSS
 
-@mixin test($test) {
-  article {
+custom-element {
+  $baseColor: rgba(190, 0, 10, 0.3);
+  $baseColor2: rgba(190, 0, 10, 0.3) !default;
+
+  @use 'library' with (
+    $black: #222,
+    $border-radius: 0.1rem
+  );
+
+  @use 'sass:math' as math;
+
+  @if $dark-theme {
+    $primary-color: darken($primary-color, 60%);
+    $accent-color: lighten($accent-color, 60%);
+  }
+
+  $theme-colors: (
+    'success': #28a745,
+    'info': #17a2b8,
+    'warning': #ffc107,
+  );
+
+  .alert {
+    background-color: map.get($theme-colors, 'warning');
+  }
+
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+
+  $sizes: 40px, 50px, 80px;
+
+  @each $size in $sizes {
+    .icon-#{$size} {
+      font-size: $size;
+      height: $size;
+      width: $size;
+    }
+  }
+
+  @each $name, $glyph, $size in $icons {
+    .icon-#{$name}:before {
+      display: inline-block;
+      font-family: 'Icon Font';
+      content: $glyph;
+      font-size: $size;
+    }
+  }
+
+  @for $i from 1 through 3 {
+    ul:nth-child(3n + #{$i}) {
+      background-color: lighten($base-color, $i * 5%);
+    }
+  }
+
+  @function scale-below($value, $base, $ratio: 1.618) {
+    @while $value > $base {
+      $value: math.div($value, $ratio);
+    }
+    @return $value;
+  }
+
+  @forward 'src/list';
+
+  @forward 'src/list' as list-*;
+
+  @use 'bootstrap';
+
+  li {
+    @include bootstrap.list-reset;
+  }
+
+  @mixin rtl($property, $ltr-value, $rtl-value) {
+    #{$property}: $ltr-value;
+
+    [dir='rtl'] & {
+      #{$property}: $rtl-value;
+    }
+  }
+
+  .sidebar {
+    @include rtl(float, left, right);
+  }
+
+  @at-root #{selector.unify(&, $child)} {
+    @content;
+  }
+
+  @at-root (without: media) {
+    color: #111;
+  }
+
+  @at-root (with: rule) {
+    font-size: 1.2em;
+  }
+
+  .example {
+    content: #{'string'};
+  }
+
+  .error {
+    border: 1px #f00;
+    background-color: #fdd;
+
+    &--serious {
+      @extend .error;
+      border-width: 3px;
+    }
+
+    @error "Property #{$property} must be either left or right.";
+    @warn "Unknown prefix #{$prefix}.";
+    @debug 'divider offset: #{$divider-offset}';
   }
 }
 
-::ng-deep {
-  a {
+// General CSS
+
+custom-element {
+  #id {
+  }
+  &#id {
+  }
+  .class {
+  }
+  &.class {
+  }
+  & > .child {
+  }
+  & + .child {
+  }
+  & ~ .child {
+  }
+  &[type='text'] {
+  }
+  a[href*='https'] {
+  }
+  a[href$='.org'] {
+  }
+  a[class~='logo'] {
+  }
+  a[class|='test'] {
+  }
+  a[class^='test'] {
+  }
+  a[href*='insensitive' i] {
+  }
+  a[href*='cAsE' s] {
+  }
+  a[href^='https'][href$='.org'] * {
+  }
+  multiple,
+  elements {
+  }
+  multiple,
+  elements {
+  }
+  element .generalchild {
+  }
+  // col.selected || .test {}
+  @supports (display: grid) {
+  }
+  @supports not (display: grid) {
+  }
+  @supports selector(A > B) {
+  }
+  @supports not (not (transform-origin: 2px)) {
+  }
+  @supports (display: grid) and (not (display: inline-grid)) {
+  }
+  @scroll-timeline moveTimeline {
+  }
+  @property --property-name {
+  }
+  @page {
+  }
+  @page :first {
+  }
+  @page :recto {
+  }
+  @page :verso {
+  }
+  @namespace url(XML-namespace-URL);
+  @namespace 'XML-namespace-URL';
+  @namespace prefix url(XML-namespace-URL);
+  @namespace prefix 'XML-namespace-URL';
+  @namespace url(http://www.w3.org/1999/xhtml);
+  @namespace svg url(http://www.w3.org/2000/svg);
+  @import url('fineprint.css') print;
+  @import url('bluish.css') print, screen;
+  @import 'common.css' screen;
+  @import url('landscape.css') screen and (orientation: landscape);
+  @import url('narrow.css') supports(display: flex) screen and (max-width: 400px);
+  @import url(headings.css) layer(default);
+  @import url(links.css) layer(default);
+  @media screen and (min-width: 900px) {
+  }
+  @layer layer-name {
+  }
+  @layer layer-name {
+  }
+  @layer layer-name, layer-name, layer-name {
+  }
+  @layer {
+  }
+  @layer default {
+    audio[controls] {
+      display: block;
+    }
+  }
+  @charset "utf-8";
+  @color-profile --swop5c {
+  }
+  @counter-style thumbs {
+  }
+  @document url("https://www.example.com/")
+  {
+  }
+  @keyframes slidein {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular-webfont.woff2') format('woff2'),
+      url('/fonts/OpenSans-Regular-webfont.woff') format('woff');
+  }
+  @font-feature-values Font Two {
+    @styleset {
+      nice-style: 4;
+    }
   }
 }
 
-/deep/ {
-  a {
+// Pseudo Elements
+
+custom-element {
+  &::after {
+  }
+  &::backdrop {
+  }
+  &::before {
+  }
+  &::cue {
+  }
+  &::cue(element) {
+  }
+  &::cue-region {
+  }
+  &::cue-region(element) {
+  }
+  &::first-letter {
+  }
+  &::first-line {
+  }
+  &::file-selector-button {
+  }
+  &::grammar-error {
+  }
+  &::marker {
+  }
+  &::part(tab) {
+  }
+  &::placeholder {
+  }
+  &::selection {
+  }
+  &::shadow {
+  }
+  &::slotted(span) {
+  }
+  &::spelling-error {
+  }
+  &::target-text {
   }
 }
 
->>> {
-  a {
+// Pseudo Classes
+
+custom-element {
+  &:after {
+  } //wrong but widely accepted
+  &:before {
+  } //wrong but widely accepted
+  &:first-letter {
+  } //wrong but widely accepted
+  &:first-line {
+  } //wrong but widely accepted
+  &:active {
   }
-}
-
-html,
-body {
-  height: 100%;
-  background-color: white;
-}
-
-#GridPage {
-  background-color: white;
-}
-
-.Container {
-  min-height: 2%;
-  min-width: 2%;
-
-  overflow-x: auto;
-  overflow-y: auto;
-
-  position: relative;
-  margin: 0 auto;
-  border: black;
-}
-
-.mat-header-cell,
-.mat-cell {
-  min-width: 15px;
-}
-
-.mat-header-cell {
-  background-color: #3f51b5;
-  color: white !important;
-  font-size: larger !important;
-}
-
-.mat-row {
+  &:any-link {
+  }
+  &:autofill {
+  }
+  &:blank {
+  }
+  &:checked {
+  }
+  &:default {
+  }
+  &:defined {
+  }
+  &:dir(rtl) {
+  }
+  &:disabled {
+  }
+  &:empty {
+  }
+  &:enabled {
+  }
+  &:first {
+  }
+  &:first-child {
+  }
+  &:first-of-type {
+  }
+  &:focus {
+  }
+  &:focus-visible {
+  }
+  &:focus-within {
+  }
+  &:fullscreen {
+  }
+  &:has(+ p) {
+  }
+  &:host {
+  }
+  &:host(.special-element) {
+  }
+  &:host-context(html.dark-theme) {
+  }
   &:hover {
-    background-color: whitesmoke !important;
+  }
+  &:in-range {
+  }
+  &:indeterminate {
+  }
+  &:invalid {
+  }
+  &:is(header, main, footer, custom.test) {
+  }
+  &:matches(header, main, custom.test) {
+  }
+  &:any(header, main, custom.test) {
+  }
+  &:lang(en-US) {
+  }
+  &:-ms-lang(en-US) {
+  }
+  &:last-child {
+  }
+  &:last-of-type {
+  }
+  &:left {
+  }
+  &:link {
+  }
+  &:modal {
+  }
+  &:not(customelement, .test) {
+  }
+  &:nth-child(-n + 3) {
+  }
+  &:nth-last-child(-n + 3) {
+  }
+  &:nth-last-of-type(-n + 3) {
+  }
+  &:nth-of-type(-n + 3) {
+  }
+  &:only-child {
+  }
+  &:only-of-type {
+  }
+  &:optional {
+  }
+  &:out-of-range {
+  }
+  &:paused {
+  }
+  &:picture-in-picture {
+  }
+  &:placeholder-shown {
+  }
+  &:playing {
+  }
+  &:read-only {
+  }
+  &:read-write {
+  }
+  &:required {
+  }
+  &:right {
+  }
+  &:root {
+  }
+  &:scope {
+  }
+  &:target {
+  }
+  &:user-invalid {
+  }
+  &:-moz-ui-invalid {
+  }
+  &:user-valid {
+  }
+  &:-moz-ui-valid {
+  }
+  &:valid {
+  }
+  &:visited {
+  }
+  &:where(section.with-class, another-component.class) {
   }
 }
 
-html:lang(en-US) {
-}
+// Angular-Specific selectors
 
-form:target-within {
-}
-
-nav:local-link {
-  color: red;
-}
-
-tabbed-custom-element:nth-col(),
-tabbed-custom-element:nth-last-col() {
-}
-
-:user-valid,
-:-moz-ui-valid {
-}
-:user-invalid,
-:-moz-ui-valid {
-}
-
-:-webkit-any(),
-:-webkit-full-screen,
-::-webkit-keygen-select,
-::-webkit-file-upload-button,
-::-webkit-inner-spin-button ::-webkit-meter-bar,
-::-webkit-meter-even-less-good-value,
-::-webkit-meter-optimum-value,
-::-webkit-meter-suboptimum-value,
-::-webkit-outer-spin-button,
-::-webkit-progress-bar,
-::-webkit-progress-inner-element,
-::-webkit-validation-bubble-message,
-:-ms-fullscreen,
-:-ms-lang(),
-::-ms-clear ::-ms-clear :-moz-any(),
-:-moz-any-link,
-:-moz-broken,
-:-moz-drag-over,
-:-moz-first-node,
-:-moz-focusring,
-:-moz-full-screen,
-:-moz-last-node,
-:-moz-loading,
-:-moz-only-whitespace,
-:-moz-placeholder,
-:-moz-submit-invalid,
-:-moz-suppressed,
-:-moz-ui-invalid,
-:-moz-ui-valid,
-:-moz-user-disabled,
-:-moz-window-inactive,
-::-moz-focus-inner,
-::-moz-focus-outer,
-::-moz-list-bullet,
-::-moz-list-number,
-::-moz-placeholder,
-mat-tabbed-custom-element::-moz-progress-bar,
-::-moz-range-progress,
-::-moz-range-thumb,
-&::-moz-range-track,
-a::-moz-selection {
-}
-
-:autofill {
-}
-.filter-notice {
-  a:lang(zh) {
-    // whatever styling
-  }
-  width: 90%;
-  display: block;
-  padding-right: 15px;
-  position: relative;
-  margin: 0 auto;
-  margin-bottom: 15px;
-
-  tabbed-custom-element:host-context(.test) {
-  }
-
-  tabbed-custom-element:root {
-    --main-bg-color: brown;
-  }
-
-  tabbed-custom-element:host {
-    --test: 2px;
-  }
-
-  tabbed-custom-element:root {
-    --brand-color: red; /*   default value*/
-    --header-theme: {
-      color: var(--brand-color);
-      font-family: cursive;
-      font-weight: 600;
-    }
-  }
-
-  tabbed-custom-element:modal {
-  }
-
-  tabbed-custom-element:picture-in-picture {
-  }
-
-  tabbed-custom-element::after {
-  }
-
-  p + p {
-  }
-
-  p ~ p {
-  }
-
-  p > p {
-  }
-
-  p >>> p {
-  }
-
-  :is(header, main, footer) p:hover {
-    color: red;
-    cursor: pointer;
-  }
-
-  tabbed-custom-element:dir(rtl),
-  tabbed-custom-element:has(a > img),
-  tabbed-custom-element:host-context(asd),
-  tabbed-custom-element:host(asd, asdas) a:lang(en-US),
-  tabbed-custom-element:nth-child(-n + 3),
-  tabbed-custom-element:nth-last-child(-n + 3),
-  tabbed-custom-element:nth-last-of-type(-n + 3),
-  tabbed-custom-element:nth-of-type(-n + 3),
-  tabbed-custom-element:nth-last-of-type(-n + 3),
-  tabbed-custom-element::slotted(span) {
-  }
-  tabbed-custom-element:defined,
-  tabbed-custom-element::target-text {
-  }
-
-  tabbed-custom-element::file-selector-button {
-  }
-
-  tabbed-custom-element::part(tab) {
-    color: #0c0dcc;
-    border-bottom: transparent solid 2px;
-  }
-
-  tabbed-custom-element::part(tab):hover {
-    background-color: #0c0d19;
-    border-color: #0c0d33;
-  }
-
-  tabbed-custom-element::part(tab):hover:active {
-    background-color: #0c0d33;
-  }
-
-  tabbed-custom-element::cue,
-  tabbed-custom-element::cue(selector),
-  tabbed-custom-element::cue-region,
-  tabbed-custom-element::cue-region(selector),
-  video:playing,
-  video:paused,
-  video:seeking,
-  video:buffering,
-  video:stalled,
-  video:muted,
-  video:volume-locked {
-  }
-
-  main:has(.test, .test) {
-  }
-
-  main:where(h1, h2, h3) {
-    color: orange;
-  }
-
-  input:user-invalid {
-    color: red;
-  }
-  input:placeholder-shown {
-    border: 5px solid red;
-  }
-
-  a:is(section, article, aside, nav) :is(h1, h2, h3, h4, h5) {
-    color: #bada55;
-  }
-
-  a:is(::selection, ::-moz-selection) {
-    background: yellow;
-  }
-
-  input:checked {
-  }
-
-  p:blank {
-  }
-
-  .item:dir(rtl) {
-  }
-
-  video:past(p) {
-  }
-
-  video:future(p) {
-  }
-
-  video:current(p, ul) {
-  }
-
-  video:current {
-  }
-
-  h1 {
-    @apply --header-theme;
-  }
-
-  h2 {
-    --brand-color: green;
-    @apply --header-theme;
-  }
-
+custom-element {
   ::ng-deep {
-    a {
-    }
-  }
-
-  ::shadow {
-  }
-
-  /deep/ {
-    a {
-    }
-  }
-
+  } // this selector was deprecated by the angular team
   >>> {
-    a {
-    }
-  }
-
-  b.clear-filters {
-    float: right;
-    cursor: pointer;
-    transition: 0.15s ease-in-out color;
-
-    &:hover {
-      opacity: 0.65;
-    }
-
-    mat-icon {
-      float: right;
-      margin-top: -1px;
-    }
-
-    & > {
-    }
-  }
-}
-
-.filter-criteria {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 10pt;
-  color: #888;
-}
-
-.search-wrapper {
-  mat-divider {
-    width: 20px;
-  }
-
-  mat-form-field {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 2%;
-
-    mat-icon {
-      width: 2%;
-      font-size: 15pt;
-      vertical-align: middle;
-    }
-  }
-}
-
-td {
-  &.has-img {
-    text-align: center;
-  }
-
-  img {
-    cursor: pointer;
-    height: auto;
-    width: 20px;
-    vertical-align: bottom;
-  }
+  } // this selector was deprecated by the angular team
+  /deep/ {
+  } // this selector was deprecated by the angular team
 }

@@ -1,7 +1,7 @@
 {
   repository: {
     selector_custom: {
-      match: '\\b([a-zA-Z0-9\\-_]+)(?=\\.|\\s++[^:]|\\s*[,\\[{]|:(link|visited|hover|active|focus|target-within|target|lang|disabled|enabled|checked|indeterminate|root|local-link|user-valid|user-invalid|-moz-ui-invalid|-moz-ui-valid|autofill|modal|picture-in-picture|playing|paused|seeking|buffering|stalled|muted|volume-locked|where|placeholder-shown|is|blank|past|future|current|nth-(child|last-child|of-type|last-of-type|col|last-col)|host-context|host|root|dir|has|defined|:target-text|:file-selector-button|:part|:cue-region|:cue|:slotted|:after|:before|first-child|last-child|first-of-type|last-of-type|only-child|only-of-type|empty|not|valid|invalid|(:?(-moz|-o|-ms|-webkit|-blink)[a-z-]))(\\([0-9A-Za-z]*\\))?)',
+      match: '\\b([a-zA-Z0-9\\-_]+)(?=\\.|\\s++[^:]|\\s*[,#)\\[{]|:(link|visited|hover|active|focus|target-within|target|lang|disabled|enabled|checked|indeterminate|root|local-link|user-valid|user-invalid|-moz-ui-invalid|-moz-ui-valid|autofill|modal|picture-in-picture|playing|paused|seeking|buffering|stalled|muted|volume-locked|where|placeholder-shown|is|blank|past|future|current|nth-(child|last-child|of-type|last-of-type|col|last-col)|host-context|host|root|dir|has|defined|:target-text|:file-selector-button|:part|:cue-region|:cue|:slotted|:after|:before|first-child|last-child|first-of-type|last-of-type|only-child|only-of-type|empty|not|valid|invalid|(:?(-moz|-o|-ms|-webkit|-blink)[a-z-]))(\\([0-9A-Za-z]*\\))?)',
       name: 'entity.name.tag.css',
     },
   },

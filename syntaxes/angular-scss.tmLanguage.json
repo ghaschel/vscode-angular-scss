@@ -1142,46 +1142,6 @@
         }
       ]
     },
-    "comment_block": {
-      "begin": "/\\*",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "end": "\\*/",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "name": "comment.block.scss"
-    },
-    "comment_docblock": {
-      "name": "comment.block.documentation.scss",
-      "begin": "///",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "end": "(?=$)",
-      "patterns": [
-        {
-          "include": "source.sassdoc"
-        }
-      ]
-    },
-    "comment_line": {
-      "begin": "//",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "end": "\\n",
-      "name": "comment.line.scss"
-    },
     "constant_default": {
       "match": "!default",
       "name": "keyword.other.default.scss"
@@ -1247,6 +1207,46 @@
           "include": "#parameters"
         }
       ]
+    },
+    "comment_block": {
+      "begin": "/\\*",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "end": "\\*/",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "name": "comment.block.scss"
+    },
+    "comment_docblock": {
+      "name": "comment.block.documentation.scss",
+      "begin": "///",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "end": "(?=$)",
+      "patterns": [
+        {
+          "include": "source.sassdoc"
+        }
+      ]
+    },
+    "comment_line": {
+      "begin": "//",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "end": "\\n",
+      "name": "comment.line.scss"
     },
     "function_attributes": {
       "patterns": [
@@ -1321,7 +1321,7 @@
     "properties": {
       "patterns": [
         {
-          "begin": "(?<![-a-z])(?=[-a-z])",
+          "begin": "(?<![-a-z]|\\(|, |:)(?=[-a-z])",
           "end": "$|(?![-a-z])",
           "name": "meta.property-name.scss",
           "patterns": [
@@ -1623,16 +1623,39 @@
       }
     },
     "selector_cue": {
-      "match": "(?x)\n(::(cue-region|cue))",
-      "name": "entity.other.attribute-name.pseudo-class.css",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.pseudo-class.css"
+      "patterns": [
+        {
+          "begin": "(?<=:cue-region|cue)(?!-)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(?x)\n(::(cue-region|cue))",
+          "name": "entity.other.attribute-name.pseudo-class.css",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          }
         }
-      }
+      ]
     },
     "selector_custom": {
-      "match": "\\b([a-zA-Z0-9\\-_]+)(?=\\.|\\s++[^:]|\\s*[,\\[{]|:(link|visited|hover|active|focus|target-within|target|lang|disabled|enabled|checked|indeterminate|root|local-link|user-valid|user-invalid|-moz-ui-invalid|-moz-ui-valid|autofill|modal|picture-in-picture|playing|paused|seeking|buffering|stalled|muted|volume-locked|where|placeholder-shown|is|blank|past|future|current|nth-(child|last-child|of-type|last-of-type|col|last-col)|host-context|host|root|dir|has|defined|:target-text|:file-selector-button|:part|:cue-region|:cue|:slotted|:after|:before|first-child|last-child|first-of-type|last-of-type|only-child|only-of-type|empty|not|valid|invalid|(:?(-moz|-o|-ms|-webkit|-blink)[a-z-]))(\\([0-9A-Za-z]*\\))?)",
+      "match": "\\b([a-zA-Z0-9\\-_]+)(?=\\.|\\s++[^:]|\\s*[,#)\\[{]|:(link|visited|hover|active|focus|target-within|target|lang|disabled|enabled|checked|indeterminate|root|local-link|user-valid|user-invalid|-moz-ui-invalid|-moz-ui-valid|autofill|modal|picture-in-picture|playing|paused|seeking|buffering|stalled|muted|volume-locked|where|placeholder-shown|is|blank|past|future|current|nth-(child|last-child|of-type|last-of-type|col|last-col)|host-context|host|root|dir|has|defined|:target-text|:file-selector-button|:part|:cue-region|:cue|:slotted|:after|:before|first-child|last-child|first-of-type|last-of-type|only-child|only-of-type|empty|not|valid|invalid|(:?(-moz|-o|-ms|-webkit|-blink)[a-z-]))(\\([0-9A-Za-z]*\\))?)",
       "name": "entity.name.tag.css"
     },
     "selector_deep": {
@@ -1676,10 +1699,9 @@
               "name": "punctuation.definition.parameters.end.bracket.round.scss"
             }
           },
-          "name": "entity.other.attribute-name.pseudo-class.css",
           "patterns": [
             {
-              "include": "#selector_class"
+              "include": "#selectors"
             }
           ]
         },
@@ -1695,13 +1717,36 @@
       ]
     },
     "selector_host": {
-      "match": "(?x)\n(:host)(?!-)",
-      "name": "entity.other.attribute-name.pseudo-class.css",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.pseudo-class.css"
+      "patterns": [
+        {
+          "begin": "(?<=:host)(?!-)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(?x)\n(:host)(?!-)",
+          "name": "entity.other.attribute-name.pseudo-class.css",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          }
         }
-      }
+      ]
     },
     "selector_id": {
       "match": "(?x)\n(\\#)                                  # Valid id-name\n(\n  (?: [-a-zA-Z_0-9]|[^\\x00-\\x7F]     # Valid identifier characters\n    | \\\\(?:[0-9a-fA-F]{1,6}|.)       # Escape sequence\n    | \\#\\{                           # Interpolation (escaped to avoid Coffeelint errors)\n    | \\.?\\$                          # Possible start of interpolation variable\n    | }                                # Possible end of interpolation\n  )+\n)                                      # Followed by either:\n(?= $                                  # - End of the line\n  | [\\s,\\#)\\[:{>+~|]                # - Another selector\n  | \\.[^$]                            # - Class selector, negating module variable\n  | /\\*                               # - A block comment\n)",
@@ -1728,13 +1773,36 @@
       }
     },
     "selector_is": {
-      "match": "(?x)\n(:is)",
-      "name": "entity.other.attribute-name.pseudo-class.css",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.pseudo-class.css"
+      "patterns": [
+        {
+          "begin": "(?<=:is)(?!-)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(?x)\n(:is)",
+          "name": "entity.other.attribute-name.pseudo-class.css",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          }
         }
-      }
+      ]
     },
     "selector_local_link": {
       "match": "(?x)\n(:local-link)",
@@ -1762,14 +1830,69 @@
         }
       }
     },
-    "selector_part": {
-      "match": "(?x)\n(::part)",
-      "name": "entity.other.attribute-name.pseudo-class.css",
-      "captures": {
-        "1": {
+    "selector_not": {
+      "patterns": [
+        {
+          "begin": "(?<=:not)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(:not)\\b",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          },
           "name": "entity.other.attribute-name.pseudo-class.css"
         }
-      }
+      ]
+    },
+    "selector_part": {
+      "patterns": [
+        {
+          "begin": "(?<=:part)(?!-)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(?x)\n(::part)",
+          "name": "entity.other.attribute-name.pseudo-class.css",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          }
+        }
+      ]
     },
     "selector_picture_in_picture": {
       "match": "(?x)\n(:picture-in-picture)",
@@ -1881,13 +2004,36 @@
       }
     },
     "selector_slotted": {
-      "match": "(?x)\n(::slotted)",
-      "name": "entity.other.attribute-name.pseudo-class.css",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.pseudo-class.css"
+      "patterns": [
+        {
+          "begin": "(?<=::slotted)(?!-)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(?x)\n(::slotted)",
+          "name": "entity.other.attribute-name.pseudo-class.css",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          }
         }
-      }
+      ]
     },
     "selector_target_text": {
       "match": "(?x)\n(::target-text)",
@@ -1934,25 +2080,74 @@
       }
     },
     "selector_video_pseudo": {
-      "match": "(?x)\n(:(playing|paused|seeking|buffering|stalled|muted|volume-locked|past|future|current))",
-      "name": "entity.other.attribute-name.pseudo-class.css",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.pseudo-class.css"
+      "patterns": [
+        {
+          "begin": "(?<=:past|current|future)(?!-)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(?x)\n(:(playing|paused|seeking|buffering|stalled|muted|volume-locked|past|future|current))",
+          "name": "entity.other.attribute-name.pseudo-class.css",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          }
         }
-      }
+      ]
     },
     "selector_where": {
-      "match": "(?x)\n(:where)",
-      "name": "entity.other.attribute-name.pseudo-class.css",
-      "captures": {
-        "1": {
-          "name": "entity.other.attribute-name.pseudo-class.css"
+      "patterns": [
+        {
+          "begin": "(?<=:where|:matches|:any)(?!-)\\s*(\\()",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.parameters.begin.bracket.round.scss"
+            }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parameters.end.bracket.round.scss"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#selectors"
+            }
+          ]
+        },
+        {
+          "match": "(?x)\n(:where|:matches|:any)(?!-)",
+          "name": "entity.other.attribute-name.pseudo-class.css",
+          "captures": {
+            "1": {
+              "name": "entity.other.attribute-name.pseudo-class.css"
+            }
+          }
         }
-      }
+      ]
     },
     "selectors": {
       "patterns": [
+        {
+          "include": "#selector_id"
+        },
         {
           "include": "#selector_slotted"
         },
@@ -1964,6 +2159,9 @@
         },
         {
           "include": "#selector_cue"
+        },
+        {
+          "include": "#selector_not"
         },
         {
           "include": "#selector_target_text"
@@ -2039,9 +2237,6 @@
         },
         {
           "include": "#selector_class"
-        },
-        {
-          "include": "#selector_id"
         },
         {
           "include": "#selector_pseudo_class"

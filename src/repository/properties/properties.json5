@@ -3,7 +3,7 @@
     properties: {
       patterns: [
         {
-          begin: '(?<![-a-z])(?=[-a-z])',
+          begin: '(?<![-a-z]|\\(|, |:)(?=[-a-z])',
           end: '$|(?![-a-z])',
           name: 'meta.property-name.scss',
           patterns: [

@@ -15,10 +15,9 @@
               name: 'punctuation.definition.parameters.end.bracket.round.scss',
             },
           },
-          name: 'entity.other.attribute-name.pseudo-class.css',
           patterns: [
             {
-              include: '#selector_class',
+              include: '#selectors',
             },
           ],
         },

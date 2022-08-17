@@ -1,13 +1,36 @@
 {
   repository: {
     selector_part: {
-      match: '(?x)\n(::part)',
-      name: 'entity.other.attribute-name.pseudo-class.css',
-      captures: {
-        '1': {
-          name: 'entity.other.attribute-name.pseudo-class.css',
+      patterns: [
+        {
+          begin: '(?<=:part)(?!-)\\s*(\\()',
+          beginCaptures: {
+            '1': {
+              name: 'punctuation.definition.parameters.begin.bracket.round.scss',
+            },
+          },
+          end: '\\)',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.parameters.end.bracket.round.scss',
+            },
+          },
+          patterns: [
+            {
+              include: '#selectors',
+            },
+          ],
         },
-      },
+        {
+          match: '(?x)\n(::part)',
+          name: 'entity.other.attribute-name.pseudo-class.css',
+          captures: {
+            '1': {
+              name: 'entity.other.attribute-name.pseudo-class.css',
+            },
+          },
+        },
+      ],
     },
   },
 }

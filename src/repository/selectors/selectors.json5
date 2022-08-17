@@ -2,11 +2,12 @@
   repository: {
     selectors: {
       patterns: [
-        // { include: 'source.css#tag-names' },
+        { include: '#selector_id' },
         { include: '#selector_slotted' },
         { include: '#selector_file_selector_button' },
         { include: '#selector_part' },
         { include: '#selector_cue' },
+        { include: '#selector_not' },
         { include: '#selector_target_text' },
         { include: '#selector_defined' },
         { include: '#selector_video_pseudo' },
@@ -32,7 +33,6 @@
         { include: '#selector_deep' },
         { include: '#selector_custom' },
         { include: '#selector_class' },
-        { include: '#selector_id' },
         { include: '#selector_pseudo_class' },
         { include: '#tag_wildcard' },
         { include: '#tag_parent_reference' },
