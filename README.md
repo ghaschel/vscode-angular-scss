@@ -35,43 +35,43 @@ This plugin fixes the VSCode's messed up and feature-lacking SCSS syntax highlig
 
 <span name="general-scss"></span>
 
-<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/doctype.png" title="General SCSS" alt="General SCSS" />
+<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/general-scss.gif" title="General SCSS" alt="General SCSS" />
 
 ### General CSS
 
 <span name="general-css"></span>
 
-<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/comments.png" title="General CSS" alt="General CSS" />
+<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/general-css.gif" title="General CSS" alt="General CSS" />
 
 ### Angular-Specific Selectors
 
 <span name="angular-specific"></span>
 
-<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/angular-directives.png" title="Angular-Specific Selectors" alt="Angular-Specific Selectors" />
+<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/angular-specific.gif" title="Angular-Specific Selectors" alt="Angular-Specific Selectors" />
 
 ### Houdini CSS
 
 <span name="houdini-css"></span>
 
-<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/angular-interpolations.png" title="Houdini CSS" alt="Houdini CSS" />
+<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/css-houdini.gif" title="Houdini CSS" alt="Houdini CSS" />
 
 ### Pseudo-Classes
 
 <span name="pseudo-classes"></span>
 
-<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/entities.png" title="Pseudo-Classes" alt="Pseudo-Classes" />
+<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/pseudo-classes.gif" title="Pseudo-Classes" alt="Pseudo-Classes" />
 
 ### Pseudo-Elements
 
 <span name="pseudo-elements"></span>
 
-<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/regex.png" title="Pseudo-Elements" alt="Pseudo-Elements" />
+<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/pseudo-elements.gif" title="Pseudo-Elements" alt="Pseudo-Elements" />
 
 ### DOM events [see complete list](DOM-EVENTS.md)
 
 <span name="xml-namespaces"></span>
 
-<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/dom-events.png" title="XML Namespaces" alt="XML Namespaces" />
+<img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/xml-namespaces.gif" title="XML Namespaces" alt="XML Namespaces" />
 
 ## Disclaimer
 

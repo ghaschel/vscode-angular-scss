@@ -3,4 +3,4 @@
 
 npm run compile-json;
 npm test;
-npx pretty-quick --staged
+# npx pretty-quick --staged

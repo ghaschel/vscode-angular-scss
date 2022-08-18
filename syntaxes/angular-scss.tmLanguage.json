@@ -248,6 +248,46 @@
         }
       ]
     },
+    "comment_block": {
+      "begin": "/\\*",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "end": "\\*/",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "name": "comment.block.scss"
+    },
+    "comment_docblock": {
+      "name": "comment.block.documentation.scss",
+      "begin": "///",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "end": "(?=$)",
+      "patterns": [
+        {
+          "include": "source.sassdoc"
+        }
+      ]
+    },
+    "comment_line": {
+      "begin": "//",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.scss"
+        }
+      },
+      "end": "\\n",
+      "name": "comment.line.scss"
+    },
     "at_rule_at_root": {
       "begin": "\\s*((@)(at-root))(\\s+|$)",
       "end": "\\s*(?={)",
@@ -1552,46 +1592,6 @@
           "include": "#selectors"
         }
       ]
-    },
-    "comment_block": {
-      "begin": "/\\*",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "end": "\\*/",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "name": "comment.block.scss"
-    },
-    "comment_docblock": {
-      "name": "comment.block.documentation.scss",
-      "begin": "///",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "end": "(?=$)",
-      "patterns": [
-        {
-          "include": "source.sassdoc"
-        }
-      ]
-    },
-    "comment_line": {
-      "begin": "//",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.comment.scss"
-        }
-      },
-      "end": "\\n",
-      "name": "comment.line.scss"
     },
     "constant_default": {
       "match": "!default",
