@@ -47,16 +47,40 @@
       include: '#at_rule_option',
     },
     {
+      include: '#at_rule_counter_style',
+    },
+    {
+      include: '#at_rule_color_profile',
+    },
+    {
+      include: '#at_rule_property',
+    },
+    {
       include: '#at_rule_namespace',
     },
     {
       include: '#at_rule_fontface',
     },
     {
+      include: '#at_rule_document',
+    },
+    {
       include: '#at_rule_page',
     },
     {
       include: '#at_rule_keyframes',
+    },
+    {
+      include: '#at_rule_font_feature_values_child_annotations',
+    },
+    {
+      include: '#at_rule_font_feature_values',
+    },
+    {
+      include: '#at_rule_layer',
+    },
+    {
+      include: '#at_rule_scroll_timeline',
     },
     {
       include: '#at_rule_at_root',

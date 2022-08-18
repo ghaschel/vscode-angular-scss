@@ -1,0 +1,31 @@
+{
+  repository: {
+    at_rule_font_feature_values: {
+      begin: '\\s*((@)font-feature-values\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.at-rule.import.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*(?={)',
+      name: 'meta.at-rule.layer.scss',
+      patterns: [
+        {
+          include: '#variable',
+        },
+        {
+          include: '#string_single',
+        },
+        {
+          include: '#string_double',
+        },
+        {
+          include: '#comment_line',
+        },
+      ],
+    },
+  },
+}

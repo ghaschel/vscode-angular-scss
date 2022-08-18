@@ -8,6 +8,10 @@
           name: 'meta.property-name.scss',
           patterns: [
             {
+              match: '\\b(source|scroll-offsets|syntax|initialvalue|inherits)\\b',
+              name: 'support.type.property-name.css',
+            },
+            {
               include: 'source.css#property-names',
             },
             {
@@ -30,6 +34,32 @@
           },
           contentName: 'meta.property-value.scss',
           patterns: [
+            {
+              match: '\\b(false|true)\\b',
+              name: 'constant.language.boolean.css',
+            },
+            {
+              begin: '\\b(selector)(\\()',
+              beginCaptures: {
+                '1': {
+                  name: 'support.function.misc.scss',
+                },
+                '2': {
+                  name: 'punctuation.section.function.scss',
+                },
+              },
+              end: '(\\))',
+              endCaptures: {
+                '1': {
+                  name: 'punctuation.section.function.scss',
+                },
+              },
+              patterns: [
+                {
+                  include: '#selectors',
+                },
+              ],
+            },
             {
               include: '#general',
             },

@@ -11,7 +11,6 @@
           name: 'punctuation.definition.keyword.scss',
         },
       },
-      name: 'meta.at-rule.at-root.scss',
       patterns: [
         {
           include: '#function_attributes',

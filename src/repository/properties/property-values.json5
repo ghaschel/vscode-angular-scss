@@ -56,6 +56,20 @@
           },
           patterns: [
             {
+              match: '(with|without)+(:)\\s*([a-zA-Z\\-]+)+',
+              captures: {
+                '1': {
+                  name: 'support.type.property-name.scss',
+                },
+                '2': {
+                  name: 'punctuation.separator.key-value.scss',
+                },
+                '3': {
+                  name: 'keyword.control.at-rule.scss',
+                },
+              },
+            },
+            {
               include: '#general',
             },
             {

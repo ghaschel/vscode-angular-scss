@@ -1,7 +1,7 @@
 {
   repository: {
-    selector_angle_bracket: {
-      match: '(?x)\n(>|\\+|\\~)(?!>)',
+    selector_combinators: {
+      match: '(?x)\n(>|\\+|\\~|(\\|\\|))(?!>)',
       name: 'entity.other.attribute-name.pseudo-class.css',
       captures: {
         '1': {

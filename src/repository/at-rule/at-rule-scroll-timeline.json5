@@ -1,0 +1,105 @@
+{
+  repository: {
+    at_rule_scroll_timeline: {
+      begin: '(?<=^|\\s)(@)scroll-timeline\\b',
+      beginCaptures: {
+        '0': {
+          name: 'keyword.control.at-rule.scroll-timeline.scss',
+        },
+        '1': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '(?<=})',
+      name: 'meta.at-rule.scroll-timeline.scss',
+      patterns: [
+        {
+          match: '(?<=@scroll-timeline)\\s+((?:[_A-Za-z][-\\w]|-[_A-Za-z])[-\\w]*)',
+          captures: {
+            '1': {
+              name: 'entity.name.function.scss',
+            },
+          },
+        },
+        {
+          begin: '(?<=@scroll-timeline)\\s+(")',
+          beginCaptures: {
+            '1': {
+              name: 'punctuation.definition.string.begin.scss',
+            },
+          },
+          end: '"',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.string.end.scss',
+            },
+          },
+          name: 'string.quoted.double.scss',
+          contentName: 'entity.name.function.scss',
+          patterns: [
+            {
+              match: '\\\\(\\h{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              include: '#interpolation',
+            },
+          ],
+        },
+        {
+          begin: "(?<=@scroll-timeline)\\s+(')",
+          beginCaptures: {
+            '1': {
+              name: 'punctuation.definition.string.begin.scss',
+            },
+          },
+          end: "'",
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.string.end.scss',
+            },
+          },
+          name: 'string.quoted.single.scss',
+          contentName: 'entity.name.function.scss',
+          patterns: [
+            {
+              match: '\\\\(\\h{1,6}|.)',
+              name: 'constant.character.escape.scss',
+            },
+            {
+              include: '#interpolation',
+            },
+          ],
+        },
+        {
+          begin: '{',
+          beginCaptures: {
+            '0': {
+              name: 'punctuation.section.scroll-timeline.begin.scss',
+            },
+          },
+          end: '}',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.section.scroll-timeline.end.scss',
+            },
+          },
+          patterns: [
+            {
+              include: '#flow_control',
+            },
+            {
+              include: '#interpolation',
+            },
+            {
+              include: '#properties',
+            },
+            {
+              include: '#rules',
+            },
+          ],
+        },
+      ],
+    },
+  },
+}

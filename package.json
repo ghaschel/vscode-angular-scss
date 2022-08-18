@@ -10,8 +10,8 @@
     "compile-json": "npx gulp compile-json",
     "publish": "standard-version && git push --follow-tags origin master && vsce publish",
     "postinstall": "node scripts/postinstall.js",
-    "test": "npx vscode-tmgrammar-test -g syntaxes/angular-scss.tmLanguage.json -g test/externalGrammars/source.css.tmLanguage.json -g test/externalGrammars/source.js.tmLanguage.json -g test/externalGrammars/text.html.basic.tmLanguage.json -g test/externalGrammars/source.css.scss.tmLanguage.json -g test/externalGrammars/source.css.less.tmLanguage.json -g test/externalGrammars/source.sassdoc.tmLanguage.json -g test/externalGrammars/source.stylus.tmLanguage.json -g test/externalGrammars/source.coffee.tmLanguage.json -g test/externalGrammars/source.js.regexp.tmLanguage.plist test/*.scss",
-    "update-snapshots": "npx vscode-tmgrammar-snap -s text.scss -g syntaxes/angular-scss.tmLanguage.json -g test/externalGrammars/source.css.tmLanguage.json -g test/externalGrammars/source.js.tmLanguage.json -g test/externalGrammars/text.html.basic.tmLanguage.json -g test/externalGrammars/source.css.scss.tmLanguage.json -g test/externalGrammars/source.css.less.tmLanguage.json -g test/externalGrammars/source.sassdoc.tmLanguage.json -g test/externalGrammars/source.stylus.tmLanguage.json -g test/externalGrammars/source.coffee.tmLanguage.json -g test/externalGrammars/source.js.regexp.tmLanguage.plist --updateSnapshot test/*.scss",
+    "test": "npx vscode-tmgrammar-test -g syntaxes/angular-scss.tmLanguage.json -g test/externalGrammars/source.css.tmLanguage.json -g test/externalGrammars/source.sassdoc.tmLanguage.json test/*.scss",
+    "update-snapshots": "npx vscode-tmgrammar-snap -s source.css.scss -g syntaxes/angular-scss.tmLanguage.json -g test/externalGrammars/source.css.tmLanguage.json -g test/externalGrammars/source.sassdoc.tmLanguage.json  --updateSnapshot test/*.scss",
     "prepare": "husky install"
   },
   "repository": {

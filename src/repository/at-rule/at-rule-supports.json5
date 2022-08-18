@@ -11,8 +11,15 @@
         },
       },
       end: '(?={)|$',
-      name: 'meta.at-rule.supports.scss',
       patterns: [
+        {
+          match: '\\b(and|not|only)\\b',
+          name: 'keyword.control.operator.css.scss',
+        },
+        {
+          match: '\\b(selector)\\b',
+          name: 'support.function.misc.scss',
+        },
         {
           include: '#logical_operators',
         },
@@ -20,12 +27,30 @@
           include: '#properties',
         },
         {
-          match: '\\(',
-          name: 'punctuation.definition.condition.begin.bracket.round.scss',
-        },
-        {
-          match: '\\)',
-          name: 'punctuation.definition.condition.end.bracket.round.scss',
+          begin: '\\(',
+          beginCaptures: {
+            '0': {
+              name: 'punctuation.definition.condition.begin.bracket.round.scss',
+            },
+          },
+          end: '\\)',
+          endCaptures: {
+            '0': {
+              name: 'punctuation.definition.condition.end.bracket.round.scss',
+            },
+          },
+          patterns: [
+            {
+              match: '\\b(and|not|only)\\b',
+              name: 'keyword.control.operator.css.scss',
+            },
+            {
+              include: '#function_attributes',
+            },
+            {
+              include: '#selectors',
+            },
+          ],
         },
       ],
     },

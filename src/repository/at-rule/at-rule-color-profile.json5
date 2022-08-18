@@ -1,0 +1,32 @@
+{
+  repository: {
+    at_rule_color_profile: {
+      begin: '\\s*((@)color-profile\\b)\\s*',
+      captures: {
+        '1': {
+          name: 'keyword.control.at-rule.import.scss',
+        },
+        '2': {
+          name: 'punctuation.definition.keyword.scss',
+        },
+      },
+      end: '\\s*(?={)',
+      name: 'meta.at-rule.layer.scss',
+      patterns: [
+        {
+          match: '\\b([a-zA-Z0-9_\\-]+)\\b',
+          name: 'keyword.control.operator.css.scss',
+        },
+        {
+          include: '#variable',
+        },
+        {
+          include: '#properties',
+        },
+        {
+          include: '#comment_line',
+        },
+      ],
+    },
+  },
+}

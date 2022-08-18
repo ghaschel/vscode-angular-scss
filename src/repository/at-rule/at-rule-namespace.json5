@@ -22,7 +22,7 @@
           begin: '(?<=@namespace)\\s+([\\w-]*)',
           captures: {
             '1': {
-              name: 'entity.name.namespace-prefix.scss',
+              name: 'meta.attribute-selector.css entity.name.namespace-prefix.scss',
             },
           },
           end: '(?=;|$)',

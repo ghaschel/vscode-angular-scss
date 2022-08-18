@@ -1,8 +1,15 @@
 {
   repository: {
     tag_wildcard: {
-      match: '\\*',
-      name: 'entity.name.tag.wildcard.scss',
+      match: '([a-zA-Z0-9-_\\*#\\.]+\\|)*(\\*)',
+      captures: {
+        '1': {
+          name: 'meta.attribute-selector.css entity.other.namespace-prefix.css',
+        },
+        '2': {
+          name: 'entity.name.tag.wildcard.scss',
+        },
+      },
     },
   },
 }

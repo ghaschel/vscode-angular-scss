@@ -1,22 +1,18 @@
 {
   repository: {
-    at_rule_import: {
-      begin: '\\s*((@)import\\b)\\s*',
+    at_rule_document: {
+      begin: '\\s*((@)document\\b)\\s*',
       captures: {
         '1': {
-          name: 'keyword.control.at-rule.import.scss',
+          name: 'invalid.illegal.scss',
         },
         '2': {
           name: 'punctuation.definition.keyword.scss',
         },
       },
-      end: '\\s*((?=;)|(?=}))',
-      name: 'meta.at-rule.import.scss',
+      end: '\\s*((?=;)|(?={))',
+      name: 'meta.at-rule.document.scss',
       patterns: [
-        {
-          match: '\\b(screen|print|and)\\b',
-          name: 'keyword.control.operator.css.scss',
-        },
         {
           begin: '(\\()',
           beginCaptures: {
@@ -37,6 +33,12 @@
           ],
         },
         {
+          include: '#functions',
+        },
+        {
+          include: '#properties',
+        },
+        {
           include: '#variable',
         },
         {
@@ -44,9 +46,6 @@
         },
         {
           include: '#string_double',
-        },
-        {
-          include: '#functions',
         },
         {
           include: '#comment_line',

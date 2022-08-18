@@ -1,30 +1,25 @@
 {
   repository: {
-    at_rule_import: {
-      begin: '\\s*((@)import\\b)\\s*',
+    at_rule_font_feature_values_child_annotations: {
+      begin: '\\s*((@)(styleset|swash|annotation|ornaments|stylistic|character-variant)\\b)\\s*',
       captures: {
         '1': {
-          name: 'keyword.control.at-rule.import.scss',
+          name: 'keyword.control.at-rule.font-feature-values-annotations.scss',
         },
         '2': {
           name: 'punctuation.definition.keyword.scss',
         },
       },
-      end: '\\s*((?=;)|(?=}))',
-      name: 'meta.at-rule.import.scss',
+      end: '\\s*(?={)',
       patterns: [
         {
-          match: '\\b(screen|print|and)\\b',
-          name: 'keyword.control.operator.css.scss',
-        },
-        {
-          begin: '(\\()',
+          begin: '(\\{\\s*)',
           beginCaptures: {
             '1': {
               name: 'punctuation.section.function.scss',
             },
           },
-          end: '(\\))',
+          end: '(\\}\\s*)',
           endCaptures: {
             '1': {
               name: 'punctuation.section.function.scss',
@@ -32,7 +27,8 @@
           },
           patterns: [
             {
-              include: '#function_attributes',
+              match: '([a-zA-Z0-9_\\-]*)(:)',
+              name: 'string.regexp',
             },
           ],
         },
@@ -40,13 +36,7 @@
           include: '#variable',
         },
         {
-          include: '#string_single',
-        },
-        {
-          include: '#string_double',
-        },
-        {
-          include: '#functions',
+          include: '#properties',
         },
         {
           include: '#comment_line',

@@ -1,3 +1,5 @@
+// SYNTAX TEST "source.css.scss"
+
 // General SCSS
 
 custom-element {
@@ -54,7 +56,23 @@ custom-element {
   }
 
   @for $i from 1 through 3 {
-    ul:nth-child(3n + #{$i}) {
+    ul:nth-child(3n + 1) {
+      background-color: lighten($base-color, $i * 5%);
+    }
+
+    ul:nth-child(1) {
+      background-color: lighten($base-color, $i * 5%);
+    }
+
+    ul:nth-child(3n) {
+      background-color: lighten($base-color, $i * 5%);
+    }
+
+    ul:nth-child(3n + n) {
+      background-color: lighten($base-color, $i * 5%);
+    }
+
+    ul:nth-child(3n + 1n) {
       background-color: lighten($base-color, $i * 5%);
     }
   }
@@ -84,20 +102,39 @@ custom-element {
     }
   }
 
-  .sidebar {
+  s .sidebar {
     @include rtl(float, left, right);
+    @include test(red, rgba(0, 0, 0, 0.1));
   }
 
   @at-root #{selector.unify(&, $child)} {
     @content;
   }
 
-  @at-root (without: media) {
-    color: #111;
+  @media screen and (min-width: 400px) {
+    body {
+      background-color: lightgreen;
+    }
   }
 
-  @at-root (with: rule) {
-    font-size: 1.2em;
+  @media screen and (min-width: 800px) {
+    body {
+      background-color: lavender;
+    }
+  }
+
+  @media print {
+    .page {
+      width: 8in !important;
+
+      @at-root (without: media) {
+        color: #111;
+      }
+
+      @at-root (with: rule) {
+        font-size: 1.2em;
+      }
+    }
   }
 
   .example {
@@ -108,7 +145,7 @@ custom-element {
     border: 1px #f00;
     background-color: #fdd;
 
-    &--serious {
+    &--serious.test {
       @extend .error;
       border-width: 3px;
     }
@@ -144,7 +181,7 @@ custom-element {
   }
   a[class~='logo'] {
   }
-  a[class|='test'] {
+  a[class|='@@@@@@@test'] {
   }
   a[class^='test'] {
   }
@@ -162,7 +199,8 @@ custom-element {
   }
   element .generalchild {
   }
-  // col.selected || .test {}
+  col.selected||.test {
+  }
   @supports (display: grid) {
   }
   @supports not (display: grid) {
@@ -174,10 +212,18 @@ custom-element {
   @supports (display: grid) and (not (display: inline-grid)) {
   }
   @scroll-timeline moveTimeline {
-  }
-  @property --property-name {
+    source: auto;
+    orientation: vertical;
+    scroll-offsets: selector(#myElement) start 0, selector(#myElement) end 0;
   }
   @page {
+  }
+  @page :blank {
+  }
+  @page :left {
+  }
+  @page :right {
+    margin: 0;
   }
   @page :first {
   }
@@ -191,6 +237,7 @@ custom-element {
   @namespace prefix 'XML-namespace-URL';
   @namespace url(http://www.w3.org/1999/xhtml);
   @namespace svg url(http://www.w3.org/2000/svg);
+
   @import url('fineprint.css') print;
   @import url('bluish.css') print, screen;
   @import 'common.css' screen;
@@ -200,27 +247,55 @@ custom-element {
   @import url(links.css) layer(default);
   @media screen and (min-width: 900px) {
   }
+
+  @layer layer-name {
+    padding: 10px;
+
+    @layer layer {
+      padding: 0;
+    }
+  }
+
   @layer layer-name {
   }
-  @layer layer-name {
-  }
+
   @layer layer-name, layer-name, layer-name {
   }
+
   @layer {
+    .box p {
+      padding: 0;
+    }
   }
+
   @layer default {
     audio[controls] {
       display: block;
     }
   }
+
   @charset "utf-8";
-  @color-profile --swop5c {
-  }
+
   @counter-style thumbs {
+    system: cyclic;
+    symbols: '\1F44D';
+    suffix: ' ';
   }
-  @document url("https://www.example.com/")
-  {
+
+  @color-profile --variable {
+    src: url('test');
   }
+
+  @document url("http://www.w3.org/"),
+          url-prefix("http://www.w3.org/Style/"),
+          domain("mozilla.org"),
+          media-document("video"),
+          regexp("https:.*") {
+    // this was deprecated but some browsers still support it
+    h1 {
+    }
+  }
+
   @keyframes slidein {
     from {
       transform: translateX(0%);
@@ -229,15 +304,34 @@ custom-element {
       transform: translateX(100%);
     }
   }
+
   @font-face {
     font-family: 'Open Sans';
     src: url('/fonts/OpenSans-Regular-webfont.woff2') format('woff2'),
       url('/fonts/OpenSans-Regular-webfont.woff') format('woff');
   }
-  @font-feature-values Font Two {
-    @styleset {
-      nice-style: 4;
+
+  .header {
+    background-color: color(--swop5c 0% 70% 20% 0%);
+  }
+
+  @font-feature-values "Font Two" {
+    @swash {
     }
+
+    @styleset {
+    }
+  }
+}
+
+// CSS Houdini API
+
+custom-element {
+  @property --property-name {
+    syntax: '<color>';
+    name: '--my-color';
+    initialvalue: '#c0ffee';
+    inherits: false;
   }
 }
 
@@ -371,7 +465,7 @@ custom-element {
   }
   &:nth-child(-n + 3) {
   }
-  &:nth-last-child(-n + 3) {
+  &:nth-last-child(3n + 3) {
   }
   &:nth-last-of-type(-n + 3) {
   }
@@ -427,9 +521,61 @@ custom-element {
 
 custom-element {
   ::ng-deep {
-  } // this selector was deprecated by the angular team
+  }
   >>> {
-  } // this selector was deprecated by the angular team
+  }
   /deep/ {
-  } // this selector was deprecated by the angular team
+  }
+}
+
+// XML Namespaces
+
+custom-element {
+  @namespace svg 'http://www.w3.org/2000/svg';
+
+  a {
+    text-decoration: underline;
+    color: purple;
+  }
+
+  svg|a {
+    stroke: purple;
+  }
+
+  svg|* {
+    mix-blend-mode: multiply;
+  }
+
+  @namespace xl 'http://www.w3.org/1999/xlink';
+
+  [xl|href] {
+    fill: orange;
+  }
+
+  [href] {
+    fill: gold;
+  }
+
+  svg|.test,
+  svg|#test,
+  svg|[test]
+
+  [xl|href$='.pdf'],
+  xl|[al|href$='.pdf'] {
+    text-transform: uppercase;
+  }
+
+  [*|href$='.pdf'] {
+    text-transform: uppercase;
+  }
+  @namespace ink 'http://www.inkscape.org/namespaces/inkscape';
+
+  [inkscape\:groupmode='layer'],
+  [ink|groupmode='layer'] {
+    isolation: isolate;
+  }
+
+  *|*.special {
+    font-family: 'fantasy';
+  }
 }
