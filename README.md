@@ -27,7 +27,7 @@ This plugin fixes the VSCode's messed up and feature-lacking SCSS syntax highlig
     - [Houdini CSS](#houdini-css)
     - [Pseudo-Classes](#pseudo-classes)
     - [Pseudo-Elements](#pseudo-elements)
-    - [DOM events see complete list](#dom-events-see-complete-list)
+    - [XML Namespaces](#xml-namespaces)
   - [Disclaimer](#disclaimer)
   - [Changelog](#changelog)
 
@@ -67,7 +67,7 @@ This plugin fixes the VSCode's messed up and feature-lacking SCSS syntax highlig
 
 <img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/pseudo-elements.gif" title="Pseudo-Elements" alt="Pseudo-Elements" />
 
-### DOM events [see complete list](DOM-EVENTS.md)
+### XML Namespaces
 
 <span name="xml-namespaces"></span>
 
