@@ -3,9 +3,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/ghaschel/vscode-angular-scss.svg)](https://github.com/ghaschel/vscode-angular-scss/issues)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ghaschel/vscode-angular-scss/blob/master/LICENSE)
 [![NodeJS with Gulp](https://github.com/ghaschel/vscode-angular-scss/actions/workflows/npm-gulp.yml/badge.svg?event=push)](https://github.com/ghaschel/vscode-angular-scss/actions/workflows/npm-gulp.yml)
-[![Downloads](https://vsmarketplacebadge.apphb.com/downloads-short/ghaschel.vscode-angular-scss.png?style=flat&color=blue)](https://marketplace.visualstudio.com/items?itemName=ghaschel.vscode-angular-scss)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/ghaschel.vscode-angular-scss.png?style=flat&color=blue)](https://marketplace.visualstudio.com/items?itemName=ghaschel.vscode-angular-scss)
-[![Version](https://vsmarketplacebadge.apphb.com/version-short/ghaschel.vscode-angular-scss.png?style=flat&color=blue)](https://marketplace.visualstudio.com/items?itemName=ghaschel.vscode-angular-scss)
+[![Downloads](https://vsmarketplacebadges.dev/downloads-short/ghaschel.vscode-angular-scss.png?style=flat&color=blue)](https://marketplace.visualstudio.com/items?itemName=ghaschel.vscode-angular-scss)
+[![Installs](https://vsmarketplacebadges.dev/installs-short/ghaschel.vscode-angular-scss.png?style=flat&color=blue)](https://marketplace.visualstudio.com/items?itemName=ghaschel.vscode-angular-scss)
+[![Version](https://vsmarketplacebadges.dev/version-short/ghaschel.vscode-angular-scss.png?style=flat&color=blue)](https://marketplace.visualstudio.com/items?itemName=ghaschel.vscode-angular-scss)
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/ghaschel/vscode-angular-scss/master/assets/angular-scss.png" title="vscode-angular-scss" alt="Logo" />
